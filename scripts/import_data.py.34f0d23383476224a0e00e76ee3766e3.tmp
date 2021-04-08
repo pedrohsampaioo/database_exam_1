@@ -1,0 +1,13 @@
+import pandas as pd
+import json
+
+df = pd.read_csv(r'netflix_titles.csv')
+df.to_json(r'netflix_titles.json')
+data_string = open("netflix_titles.json", mode='r', encoding='utf-8').read()
+data_json = json.loads(data_string)
+directors = set(data_json["director"].values())
+countries = set(data_json["country"].values())
+actors = set(data_json["cast"].values())
+print(directors)
+print(countries)
+print(actors)
